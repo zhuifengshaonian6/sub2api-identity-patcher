@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "SUB2API Identity Patcher",
+  "description": "Patch exported SUB2API account JSON files so Team workspace accounts can be imported without identity collisions.",
+  "version": "0.1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "SUB2API Identity Patcher"
+  },
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  }
+}

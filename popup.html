@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SUB2API Identity Patcher</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>SUB2API Identity Patcher</h1>
+          <p>本地修复导入 JSON 的账号身份判重字段</p>
+        </div>
+      </header>
+
+      <section class="dropzone" id="dropzone">
+        <input id="fileInput" type="file" accept=".json,application/json" multiple>
+        <div class="dropzone-icon" aria-hidden="true">JSON</div>
+        <div class="dropzone-copy">
+          <strong>选择或拖入 gpt_sub2api JSON</strong>
+          <span>不限账号条数，文件只在浏览器本地处理</span>
+        </div>
+        <button id="chooseButton" type="button">选择文件</button>
+      </section>
+
+      <section class="options" aria-label="修复选项">
+        <label class="option">
+          <input id="preserveOriginal" type="checkbox" checked>
+          <span>在 extra.original_chatgpt_account_id 保留原始 ID</span>
+        </label>
+        <label class="option">
+          <input id="downloadCombined" type="checkbox">
+          <span>多文件时合并下载为一个 JSON</span>
+        </label>
+      </section>
+
+      <section class="summary" id="summary" hidden>
+        <div class="summary-grid">
+          <div>
+            <span class="metric-label">文件</span>
+            <strong id="fileCount">0</strong>
+          </div>
+          <div>
+            <span class="metric-label">账号</span>
+            <strong id="accountCount">0</strong>
+          </div>
+          <div>
+            <span class="metric-label">已修复</span>
+            <strong id="patchedCount">0</strong>
+          </div>
+        </div>
+        <ul id="resultList" class="result-list"></ul>
+      </section>
+
+      <section class="actions">
+        <button id="patchButton" type="button" disabled>修复并下载</button>
+        <button id="clearButton" class="secondary" type="button" disabled>清空</button>
+      </section>
+
+      <p id="status" class="status" role="status"></p>
+    </main>
+    <script src="patcher-core.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
